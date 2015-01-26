@@ -11,6 +11,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.os.Build;
 import android.widget.ArrayAdapter;
+import android.widget.*;
+import java.util.*;
 
 
 public class MainActivity extends ActionBarActivity {
@@ -68,14 +70,19 @@ public class MainActivity extends ActionBarActivity {
                     "Fourth",
                     "Fifth"
             };
-            ArrayAdapter mForecastAdapter;
+            List<String> weekForecast = new ArrayList<String>(
+				Arrays.asList(forecastArray));
+			ArrayAdapter mForecastAdapter;
             mForecastAdapter = new ArrayAdapter<String>(
                     getActivity(),
                     R.layout.list_item_forecast,
                     R.id.list_item_forecast_textview,
-                    forecastArray
+                    weekForecast
             );
-            mForecastAdapter.add(findViewByID(R.id.list_item))
+            
+			ListView listView=(ListView) rootView.findViewById(R.id.listview_forecast);
+			listView.setAdapter(mForecastAdapter);
+			//mForecastAdapter.add(getActivity().findViewById(R.id.list_item));
             return rootView;
         }
     }
