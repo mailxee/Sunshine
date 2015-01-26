@@ -82,7 +82,6 @@ public class MainActivity extends ActionBarActivity {
             
 			ListView listView=(ListView) rootView.findViewById(R.id.listview_forecast);
 			listView.setAdapter(mForecastAdapter);
-			//mForecastAdapter.add(getActivity().findViewById(R.id.list_item));
             return rootView;
         }
     }
