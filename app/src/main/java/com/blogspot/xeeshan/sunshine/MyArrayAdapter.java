@@ -22,6 +22,7 @@ public class MyArrayAdapter extends ArrayAdapter
    public MyArrayAdapter(Context context, int resource, List list)
     {
         super(context, resource, list);
+		
         mContext=context;
         mResource=resource;
         mList=list;
@@ -32,17 +33,25 @@ public class MyArrayAdapter extends ArrayAdapter
     public View getView(int position, View convertView, ViewGroup parent)
     {
         LayoutInflater mInflater;
+		View mView;
         String[] mCoordinates= (String[]) getItem(position);
-        mInflater = (LayoutInflater) getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        View mView=(View)mInflater.inflate(mResource, parent, false);
+        
+        
+		if(convertView==null)
+		{
+			mInflater = (LayoutInflater) getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+			mView=mInflater.inflate(mResource, parent, false);
+		}
+		else mView=convertView;
+		
         TextView mLongitude=(TextView) mView.findViewById(R.id.list_item_textview_longitude);
         TextView mLatitude=(TextView) mView.findViewById(R.id.list_item_textview_latitude);
         TextView mName=(TextView) mView.findViewById(R.id.list_item_textview_name);
-//        mID.setText("01");
+
         mLongitude.setText(mCoordinates[0]);
         mLatitude.setText(mCoordinates[1]);
         mName.setText(mCoordinates[2]);
-//        mText.setText(mList.get(position).toString());
+
         return mView;
     }
 

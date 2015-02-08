@@ -171,7 +171,7 @@ public class MainActivity extends ActionBarActivity implements AdapterView.OnIte
 */
 
             List<String[]> gpsCoordinateAll = new ArrayList<String[]>();
-            for (int i = 0; i < 3; i++)
+            for (int i = 0; i < 14; i++)
             {
                 String[] gpsCoordinateSingle={
                         "0",
