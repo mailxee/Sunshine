@@ -25,7 +25,7 @@ public class MainActivity extends ActionBarActivity implements AdapterView.OnIte
     LocationManager mLocationManager;
 //    ListView mListView;
     List<String[]> gpsCoordinateAll;
-    MyArrayAdapter mGPSAdapter;
+    public static MyArrayAdapter mGPSAdapter;
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id)
     {
@@ -107,21 +107,22 @@ public class MainActivity extends ActionBarActivity implements AdapterView.OnIte
 
         try
         {
-            mLocation = mLocationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
+            //mLocation = mLocationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
             String mLongitude;
             String mLatitude;
             mLongitude=Double.toString(mLocation.getLongitude());
             mLatitude=Double.toString(mLocation.getLatitude());
             Toast.makeText(this, mLongitude+"\n"+mLatitude, Toast.LENGTH_LONG).show();
 
-            String[] mString=
-                    {
-                            mLongitude,
-                            mLatitude,
-                            "temp"
-                    };
-//           mGPSAdapter.add(mString);
+            String[] mString=new String[3];
+			mString[0]=mLongitude;
+			mString[1]=mLatitude;
+			mString[2]="rert";
+
+            mGPSAdapter.add(mString);
             mGPSAdapter.notifyDataSetChanged();
+			
+			mLocationManager.removeUpdates(this);
         }
         catch(Exception e)
         {
@@ -181,7 +182,8 @@ public class MainActivity extends ActionBarActivity implements AdapterView.OnIte
                 //ArrayList is better than String array because
                 //it supports removing and adding elements
             }
-			MyArrayAdapter mGPSAdapter = new MyArrayAdapter(
+			//MyArrayAdapter 
+			mGPSAdapter = new MyArrayAdapter(
                     getActivity(),
                     R.layout.gps_coordinate_item,
                     gpsCoordinateAll
