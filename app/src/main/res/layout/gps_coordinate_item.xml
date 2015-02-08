@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+    <TextView
+        android:layout_width="50dp"
+        android:layout_height="wrap_content"
+        android:minHeight="?android:attr/listPreferredItemHeight"
+        android:gravity="center_vertical"
+        android:text="Lon"
+        android:id="@+id/list_item_textview_label1">
+    </TextView>
+    <TextView
+        android:layout_toRightOf="@+id/list_item_textview_label1"
+        android:layout_width="50dp"
+        android:layout_height="wrap_content"
+        android:minHeight="?android:attr/listPreferredItemHeight"
+        android:gravity="center_vertical"
+        android:id="@+id/list_item_textview_longitude"
+        android:text="Lon here">
+    </TextView>
+    <TextView
+        android:layout_toRightOf="@+id/list_item_textview_longitude"
+        android:layout_width="50dp"
+        android:layout_height="wrap_content"
+        android:minHeight="?android:attr/listPreferredItemHeight"
+        android:gravity="center_vertical"
+        android:text="Lat"
+        android:id="@+id/list_item_textview_label2">
+    </TextView>
+    <TextView
+        android:layout_toRightOf="@+id/list_item_textview_label2"
+        android:layout_width="50dp"
+        android:layout_height="wrap_content"
+        android:minHeight="?android:attr/listPreferredItemHeight"
+        android:gravity="center_vertical"
+        android:id="@+id/list_item_textview_latitude"
+        android:text="Lat here"
+        android:layout_alignParentTop="true">
+    </TextView>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minHeight="?android:attr/listPreferredItemHeight"
+        android:gravity="center_vertical"
+        android:id="@+id/list_item_textview_name"
+        android:text="Full here"
+        android:layout_below="@+id/list_item_textview_label1"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
+    </TextView>
+</RelativeLayout>
